@@ -1,5 +1,11 @@
 ---
 import Base from "../layout/Base.astro";
+
+const cookie = Astro.cookies.get("sb-access-token");
+
+if (cookie) {
+	return Astro.redirect("/dashboard");
+}
 ---
 
 <Base title="Register">
