@@ -1,0 +1,27 @@
+---
+import Base from "../layout/Base.astro";
+
+const cookie = Astro.cookies.get("sb-access-token");
+
+if (cookie) {
+	return Astro.redirect("/dashboard");
+}
+---
+
+<Base title="Sign in">
+	<form
+		action="/api/auth/signin"
+		method="post"
+		style={{
+			display: "flex",
+			flexDirection: "column",
+			maxWidth: "300px",
+			gap: "0.5rem",
+		}}>
+		<label for="email">Email</label>
+		<input id="email" type="email" name="email" />
+		<label for="password">Password</label>
+		<input id="password" type="password" name="password" />
+		<button type="submit">Sign In</button>
+	</form>
+</Base>

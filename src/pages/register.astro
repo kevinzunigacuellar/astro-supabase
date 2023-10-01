@@ -1,0 +1,21 @@
+---
+import Base from "../layout/Base.astro";
+---
+
+<Base title="Register">
+	<form
+		action="/api/auth/register"
+		method="post"
+		style={{
+			display: "flex",
+			flexDirection: "column",
+			maxWidth: "300px",
+			gap: "0.5rem",
+		}}>
+		<label for="email">Email</label>
+		<input id="email" type="email" name="email" />
+		<label for="password">Password</label>
+		<input id="password" type="password" name="password" />
+		<button type="submit">Register</button>
+	</form>
+</Base>
