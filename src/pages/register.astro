@@ -1,9 +1,10 @@
 ---
 import Base from "../layout/Base.astro";
 
-const cookie = Astro.cookies.get("sb-access-token");
+const accessToken = Astro.cookies.get("sb-access-token");
+const refreshToken = Astro.cookies.get("sb-refresh-token");
 
-if (cookie) {
+if (accessToken && refreshToken) {
 	return Astro.redirect("/dashboard");
 }
 ---

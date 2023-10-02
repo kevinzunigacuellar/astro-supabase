@@ -1,10 +1,11 @@
 ---
 import Base from "../layout/Base.astro";
 
-const cookie = Astro.cookies.get("sb-access-token");
+const accessToken = Astro.cookies.get("sb-access-token");
+const refreshToken = Astro.cookies.get("sb-refresh-token");
 
-if (cookie) {
-  return Astro.redirect("/dashboard");
+if (accessToken && refreshToken) {
+	return Astro.redirect("/dashboard");
 }
 ---
 
@@ -25,7 +26,9 @@ if (cookie) {
     <input id="password" type="password" name="password" />
     <button type="submit">Sign In</button>
   </form>
-  <form action="/api/auth/signin" method="post">
+  <form action="/api/auth/signin" method="post" style={{
+    marginTop: "1rem",
+  }}>
     <button value="github" name="provider" type="submit">Sign in with GitHub</button>
   </form>
 </Base>
