@@ -17,6 +17,17 @@ const { data, error } = await supabase.auth.setSession({
 if (error || !data.user?.email) {
   return Astro.redirect("/signin");
 }
+
+Astro.cookies.set("sb-access-token", data?.session?.access_token!, {
+  path: "/",
+  secure: true,
+  httpOnly: true,
+});
+Astro.cookies.set("sb-refresh-token", data?.session?.refresh_token!, {
+  path: "/",
+  secure: true,
+  httpOnly: true,
+});
 ---
 
 <Base title="Dashboard">
