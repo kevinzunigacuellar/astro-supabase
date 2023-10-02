@@ -2,18 +2,24 @@
 import Base from "../layout/Base.astro";
 import { supabase } from "../scripts/supabase";
 
-const cookie = Astro.cookies.get("sb-access-token");
-if (!cookie) {
-	return Astro.redirect("/signin");
-}
-const { data, error } = await supabase.auth.getUser(cookie.value);
+const accessToken = Astro.cookies.get("sb-access-token");
+const refreshToken = Astro.cookies.get("sb-refresh-token");
 
-if (error || !data.user.email) {
-	return Astro.redirect("/signin");
+if (!accessToken || !refreshToken) {
+  return Astro.redirect("/signin");
+}
+
+const { data, error } = await supabase.auth.setSession({
+  refresh_token: refreshToken.value,
+  access_token: accessToken.value,
+});
+
+if (error || !data.user?.email) {
+  return Astro.redirect("/signin");
 }
 ---
 
 <Base title="Dashboard">
-	<p>Hi {data.user.email}</p>
-	<a href="/api/auth/signout">Sign out</a>
+  <p>Hi {data.user.email}</p>
+  <a href="/api/auth/signout">Sign out</a>
 </Base>
