@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider as Provider,
       options: {
-        redirectTo: "http://localhost:4321/api/auth/github",
+        redirectTo: import.meta.env.DEV ? "http://localhost:4321/api/auth/github" : "https://astro-supabase-eight.vercel.app/api/auth/github",
       },
     });
 
