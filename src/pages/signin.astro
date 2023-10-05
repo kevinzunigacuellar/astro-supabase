@@ -6,12 +6,7 @@ import Base from "../layout/Base.astro";
   <form
     action="/api/auth/signin"
     method="post"
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "300px",
-      gap: "0.5rem",
-    }}
+    
   >
     <label for="email">Email</label>
     <input id="email" type="email" name="email" />
@@ -19,9 +14,7 @@ import Base from "../layout/Base.astro";
     <input id="password" type="password" name="password" />
     <button type="submit">Sign In</button>
   </form>
-  <form action="/api/auth/signin" method="post" style={{
-    marginTop: "1rem",
-  }}>
+  <form action="/api/auth/signin" method="post">
     <button value="github" name="provider" type="submit">Sign in with GitHub</button>
   </form>
 </Base>
