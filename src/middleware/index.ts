@@ -1,6 +1,6 @@
 import { defineMiddleware } from "astro:middleware";
 import { supabase } from "../scripts/supabase";
-import { cookieOptions } from "../scripts/utils";
+import { cookieOptions } from "../scripts/config";
 
 const protectedRoutes = ["/dashboard"];
 const redirectRoutes = ["/signin", "/register"];

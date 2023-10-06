@@ -5,27 +5,47 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1>{title}</h1>
-		<ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/signin">Sign in</a></li>
-      <li><a href="/register">Register</a></li>
-      <li><a href="/dashboard">Dashboard</a></li>
-    </ul>
-    <slot />
-	</body>
+
+<html lang="en" class="h-full w-full">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="flex flex-col h-full w-full dark:bg-zinc-900 bg-zinc-50 dark:text-zinc-100"
+  >
+    <nav class="border-b bg-white dark:bg-zinc-800 dark:border-zinc-700">
+      <div
+        class="flex items-center justify-between p-4 max-w-screen-xl mx-auto"
+      >
+        <a href="/" class="text-2xl font-semibold dark:text-white">Moon</a>
+        <div>
+          <ul class="font-medium flex items-baseline gap-8">
+            <li>
+              <a
+                href="/dashboard"
+                class="block text-zinc-900 dark:text-gray-200">Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="/register" class="block text-zinc-900 dark:text-gray-200"
+                >Register</a
+              >
+            </li>
+            <li>
+              <a href="/signin" class="block text-zinc-900 dark:text-gray-200"
+                >Sign in</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="flex-1 flex flex-col gap-4 items-center px-4 justify-center">
+      <slot />
+    </main>
+  </body>
 </html>
-<style>
-	:root {
-		color-scheme: light dark;
-	}
-</style>

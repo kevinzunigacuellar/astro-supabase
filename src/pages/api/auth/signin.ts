@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { supabase } from "../../../scripts/supabase";
 import type { Provider } from "@supabase/supabase-js";
-import { cookieOptions } from "../../../scripts/utils";
+import { cookieOptions } from "../../../scripts/config";
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const formData = await request.formData();
@@ -13,7 +13,9 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider as Provider,
       options: {
-        redirectTo: import.meta.env.DEV ? "http://localhost:4321/api/auth/github" : "https://astro-supabase-eight.vercel.app/api/auth/github",
+        redirectTo: import.meta.env.DEV
+          ? "http://localhost:4321/api/auth/github"
+          : "https://astro-supabase-eight.vercel.app/api/auth/github",
       },
     });
 

@@ -1,9 +1,100 @@
 ---
 import Base from "../layout/Base.astro";
 export const prerender = true;
+const title = "Supabase starter template";
 ---
 
-<Base title="Home">
-	<p>Welcome to this demo!</p>
-	<p>This page was pre-rendered</p>
+<Base title={title}>
+  <h1 class="text-2xl sm:text-4xl font-bold text-center">{title}</h1>
+  <ul class="flex gap-6 items-center font-bold text-2xl mt-6">
+    <li
+      class="dark:bg-zinc-800 bg-white border-t dark:border-zinc-700 h-20 w-20 border-transparent rounded-lg shadow dark:shadow-none flex items-center justify-center"
+    >
+      <svg
+        class="h-12 w-auto"
+        width="64"
+        height="79"
+        viewBox="0 0 64 79"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_831_2294)">
+          <path
+            d="M19.9924 65.9282C16.1165 62.432 14.9851 55.0859 16.5999 49.7638C19.3998 53.1193 23.2793 54.1822 27.2977 54.7822C33.5013 55.7081 39.5937 55.3618 45.3565 52.5637C46.0158 52.2434 46.625 51.8174 47.3454 51.386C47.8861 52.9341 48.0268 54.497 47.838 56.0877C47.3787 59.9617 45.4251 62.9542 42.3177 65.2227C41.0752 66.13 39.7604 66.9411 38.4771 67.7967C34.5346 70.4262 33.4679 73.5095 34.9494 77.9946C34.9846 78.1038 35.0161 78.2131 35.0957 78.4797C33.0828 77.5909 31.6124 76.2965 30.4921 74.5946C29.3088 72.7984 28.7458 70.8114 28.7162 68.6615C28.7014 67.6152 28.7014 66.5597 28.5588 65.5282C28.2107 63.0135 27.0144 61.8876 24.7608 61.8227C22.4479 61.7561 20.6183 63.1672 20.1331 65.3893C20.0961 65.5597 20.0424 65.7282 19.9887 65.9263L19.9924 65.9282Z"
+            fill="url(#paint0_linear_831_2294)"></path>
+          <path
+            class="fill-black dark:fill-white"
+            d="M0.5 51.3932C0.5 51.3932 11.0979 46.2433 21.7254 46.2433L29.7382 21.5069C30.0381 20.3106 30.9141 19.4977 31.9029 19.4977C32.8918 19.4977 33.7677 20.3106 34.0677 21.5069L42.0804 46.2433C54.6672 46.2433 63.3058 51.3932 63.3058 51.3932C63.3058 51.3932 45.3044 2.47586 45.2692 2.37772C44.7526 0.931458 43.8804 0 42.7045 0H21.1032C19.9273 0 19.0903 0.931458 18.5384 2.37772C18.4995 2.47401 0.5 51.3932 0.5 51.3932Z"
+          ></path>
+        </g>
+        <defs>
+          <linearGradient
+            id="paint0_linear_831_2294"
+            x1="15.8877"
+            y1="78.4797"
+            x2="53.1292"
+            y2="60.6489"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#D83333"></stop>
+            <stop offset="1" stop-color="#F041FF"></stop>
+          </linearGradient>
+          <clipPath id="clip0_831_2294">
+            <rect width="64" height="79" fill="white"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </li>
+     &plus;
+    <li
+      class="dark:bg-zinc-800 bg-white border-t dark:border-zinc-700 h-20 w-20 border-transparent rounded-lg shadow dark:shadow-none flex items-center justify-center"
+    >
+      <svg
+        class="h-12 w-auto"
+        width="109"
+        height="113"
+        viewBox="0 0 109 113"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9813 107.314L53.9738 40.0627L99.1935 40.0627C107.384 40.0627 111.952 49.5228 106.859 55.9374L63.7076 110.284Z"
+          fill="url(#paint0_linear)"></path>
+        <path
+          d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9813 107.314L53.9738 40.0627L99.1935 40.0627C107.384 40.0627 111.952 49.5228 106.859 55.9374L63.7076 110.284Z"
+          fill="url(#paint1_linear)"
+          fill-opacity="0.2"></path>
+        <path
+          d="M45.317 2.07103C48.1765 -1.53037 53.9745 0.442937 54.0434 5.041L54.4849 72.2922H9.83113C1.64038 72.2922 -2.92775 62.8321 2.1655 56.4175L45.317 2.07103Z"
+          fill="#3ECF8E"></path>
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="53.9738"
+            y1="54.974"
+            x2="94.1635"
+            y2="71.8295"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#249361"></stop>
+            <stop offset="1" stop-color="#3ECF8E"></stop>
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear"
+            x1="36.1558"
+            y1="30.578"
+            x2="54.4844"
+            y2="65.0806"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop></stop>
+            <stop offset="1" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </li>
+  </ul>
+  <p class="mt-6 max-w-prose">
+    This is a starter template for building a website with Astro and Supabase
+  </p>
 </Base>
