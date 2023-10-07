@@ -4,15 +4,17 @@ const { email } = Astro.locals;
 ---
 
 <Base title="Dashboard">
-  <p class="max-w-prose text-xl text-indigo-600 dark:text-indigo-500 font-bold">
-    Hello!, {email}
+  <p
+    class="max-w-prose text-xl text-indigo-600 dark:text-indigo-400 font-semibold"
+  >
+    {email}
   </p>
   <p class="max-w-prose text-lg dark:text-zinc-100">
     This is a protected page. You can only see this if you are logged in.
   </p>
   <a
     href="/api/auth/signout"
-    class="bg-zinc-900 dark:bg-zinc-100 text-lg text-zinc-100 dark:text-zinc-900 px-4 py-2 rounded-md"
+    class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-3 py-1 rounded-md"
     >Sign out</a
   >
 </Base>

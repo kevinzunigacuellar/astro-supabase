@@ -3,7 +3,7 @@ import Base from "../layout/Base.astro";
 import Supabase from "../icons/Supabase.astro";
 import AstroIcon from "../icons/AstroIcon.astro";
 export const prerender = true;
-const title = "Supabase starter template";
+const title = "Supabase and Astro Demo";
 ---
 
 <Base title={title}>
@@ -21,7 +21,5 @@ const title = "Supabase starter template";
       <Supabase />
     </li>
   </ul>
-  <p class="mt-6 max-w-prose">
-    This is a starter template for building a website with Astro and Supabase
-  </p>
+  <p class="mt-6 max-w-prose">This page was pre-rendered at build time</p>
 </Base>
