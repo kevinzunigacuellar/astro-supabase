@@ -1,47 +1,38 @@
-# Astro Starter Kit: Minimal
+# Astro and Supabase auth demo
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This is a demo of how to use [Astro](https://astro.build) and [Supabase](https://supabase.io) to create a simple authentication flow.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Prerequisites
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- A [Supabase](https://supabase.io) account. In the auth section of your Supabase project, you'll need to add redirect URLs for dev. You can read more in the [Supabase docs](https://supabase.com/docs/guides/auth/concepts/redirect-urls).
 
-## 🚀 Project Structure
+  For example, if you're running the dev server on port 4321, you'll need to add the following redirect URL:
 
-Inside of your Astro project, you'll see the following folders and files:
+  ```txt
+  http://localhost:4321/**
+  ```
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- A [GitHub](https://github.com) OAuth app. You can create one in the GitHub developer settings under **OAuth Apps**. Follow the [Supabase docs](https://supabase.com/docs/guides/auth/social-login/auth-github) to add the GitHub OAuth app credentials to your Supabase project.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Getting started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Create a `.env` file with the following variables:
 
-Any static assets, like images, can be placed in the `public/` directory.
+    ```bash
+    SUPABASE_URL=supabase_url
+    SUPABASE_KEY=supabase_key
+    ```
 
-## 🧞 Commands
+    *You can find these values in the **API Settings** section of your Supabase project.*
 
-All commands are run from the root of the project, from a terminal:
+2. Install dependencies:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+    ```bash
+    pnpm install
+    ```
+    
+3. Run the dev server:
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+    ```bash
+    pnpm dev
+    ```
