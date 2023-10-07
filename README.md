@@ -18,21 +18,23 @@ This is a demo of how to use [Astro](https://astro.build) and [Supabase](https:/
 
 1. Create a `.env` file with the following variables:
 
-    ```bash
-    SUPABASE_URL=supabase_url
-    SUPABASE_KEY=supabase_key
-    ```
+   ```bash
+   SUPABASE_URL=supabase_url
+   SUPABASE_KEY=supabase_key
+   ```
 
-    *You can find these values in the **API Settings** section of your Supabase project.*
+   _You can find these values in the **API Settings** section of your Supabase project._
 
 2. Install dependencies:
 
-    ```bash
-    pnpm install
-    ```
-    
+   ```bash
+   pnpm install
+   ```
+
 3. Run the dev server:
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
+
+<img align="center" src="./assets/lighthouse.png" />
