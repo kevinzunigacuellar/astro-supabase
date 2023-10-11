@@ -1,6 +1,5 @@
 import { defineMiddleware } from "astro:middleware";
-import { supabase } from "../scripts/supabase";
-import { cookieOptions } from "../scripts/config";
+import { supabase } from "../lib/supabase";
 
 const protectedRoutes = ["/dashboard"];
 const redirectRoutes = ["/signin", "/register"];
@@ -25,16 +24,16 @@ export const onRequest = defineMiddleware(
       }
 
       locals.email = data.user?.email!;
-      cookies.set(
-        "sb-access-token",
-        data?.session?.access_token!,
-        cookieOptions,
-      );
-      cookies.set(
-        "sb-refresh-token",
-        data?.session?.refresh_token!,
-        cookieOptions,
-      );
+      cookies.set("sb-access-token", data?.session?.access_token!, {
+        sameSite: "strict",
+        path: "/",
+        secure: true,
+      });
+      cookies.set("sb-refresh-token", data?.session?.refresh_token!, {
+        sameSite: "strict",
+        path: "/",
+        secure: true,
+      });
     }
 
     if (redirectRoutes.includes(url.pathname)) {
