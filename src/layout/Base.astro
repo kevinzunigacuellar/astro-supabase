@@ -18,14 +18,13 @@ const { title } = Astro.props;
   <body
     class="flex flex-col h-full w-full dark:bg-zinc-900 bg-zinc-50 dark:text-zinc-100"
   >
-    <nav
-      transition:animate="none"
-      class="border-b bg-white dark:bg-zinc-800 dark:border-zinc-700"
-    >
+    <nav class="border-b bg-white dark:bg-zinc-800 dark:border-zinc-700">
       <div
-        class="flex items-center justify-between p-4 max-w-screen-xl mx-auto"
+        class="flex items-baseline justify-end sm:justify-between p-4 max-w-screen-xl mx-auto"
       >
-        <a href="/" class="text-2xl font-semibold dark:text-white">Demo</a>
+        <a href="/" class="hidden sm:block font-semibold dark:text-white"
+          >Astro</a
+        >
         <div>
           <ul class="font-medium flex items-baseline gap-8">
             <li>
