@@ -1,6 +1,14 @@
 ---
 import Base from "../layout/Base.astro";
+import { supabase } from "../lib/supabase";
+import { Reviews, type GuestbookEntry } from "../components/Reviews";
+
 const { email } = Astro.locals;
+
+const { data } = (await supabase
+  .from("guestbook")
+  .select("name, message")
+  .order("created_at", { ascending: false })) as { data: GuestbookEntry[] };
 ---
 
 <Base title="Dashboard">
@@ -17,4 +25,5 @@ const { email } = Astro.locals;
     class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-3 py-1 rounded-md"
     >Sign out</a
   >
+  <Reviews reviews={data} client:idle />
 </Base>
