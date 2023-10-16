@@ -7,14 +7,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --w .",
+    "format": "prettier --w 'src/**/*'",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/solid-js": "^3.0.2",
     "@astrojs/tailwind": "^5.0.1",
     "@astrojs/vercel": "^5.0.2",
     "@supabase/supabase-js": "^2.38.0",
     "astro": "^3.2.3",
+    "solid-js": "^1.4.3",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
