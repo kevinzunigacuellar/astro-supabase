@@ -12,18 +12,20 @@ const { data } = (await supabase
 ---
 
 <Base title="Dashboard">
-  <p
-    class="max-w-prose text-xl text-indigo-600 dark:text-indigo-400 font-semibold"
-  >
-    {email}
-  </p>
-  <p class="max-w-prose text-lg dark:text-zinc-100">
-    This is a protected page. You can only see this if you are logged in.
-  </p>
-  <a
-    href="/api/auth/signout"
-    class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-3 py-1 rounded-md"
-    >Sign out</a
-  >
-  <Reviews reviews={data} client:idle />
+  <section class="py-24 px-4 w-full flex flex-col items-center gap-2">
+    <p
+      class="max-w-prose text-xl text-indigo-600 dark:text-indigo-400 font-semibold"
+    >
+      {email}
+    </p>
+    <p class="max-w-prose text-lg mb-2 dark:text-zinc-100">
+      This is a protected page. You can only see this if you are logged in.
+    </p>
+    <a
+      href="/api/auth/signout"
+      class="mb-10 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-3 py-1 rounded-md"
+      >Sign out</a
+    >
+    <Reviews reviews={data} client:idle />
+  </section>
 </Base>

@@ -35,7 +35,7 @@ export function Reviews({ reviews }: { reviews: GuestbookEntry[] }) {
     ssrLoadFrom: "initial",
   });
 
-  const onSubmitHandler = (e: Event) => {
+  const onSubmitHandler = (e: SubmitEvent) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget as HTMLFormElement);
     const name = formData.get("name")?.toString();
@@ -43,6 +43,8 @@ export function Reviews({ reviews }: { reviews: GuestbookEntry[] }) {
 
     if (!name || !message) return;
     refetch({ name, message });
+    // clear form
+    (e.currentTarget as HTMLFormElement).reset();
   };
 
   return (
