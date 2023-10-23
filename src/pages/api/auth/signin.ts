@@ -13,9 +13,8 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
       provider: provider as Provider,
       options: {
         redirectTo: import.meta.env.DEV
-          ? "http://localhost:4321/api/auth/github"
-          : // Change this to your production URL
-            "https://astro-supabase-auth.vercel.app/api/auth/github",
+          ? "http://localhost:4321/api/auth/callback"
+          : "https://astro-supabase-auth.vercel.app/api/auth/callback",
       },
     });
 
@@ -50,5 +49,6 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     path: "/",
     secure: true,
   });
+  
   return redirect("/dashboard");
 };
