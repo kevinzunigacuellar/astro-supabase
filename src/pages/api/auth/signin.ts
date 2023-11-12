@@ -49,6 +49,6 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     path: "/",
     secure: true,
   });
-  
+
   return redirect("/dashboard");
 };

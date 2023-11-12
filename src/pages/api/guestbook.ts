@@ -8,9 +8,12 @@ export const GET: APIRoute = async () => {
     .order("created_at", { ascending: true });
 
   if (error) {
-    return new Response(JSON.stringify({
-      error: error.message,
-    }), { status: 500 });
+    return new Response(
+      JSON.stringify({
+        error: error.message,
+      }),
+      { status: 500 },
+    );
   }
 
   return new Response(JSON.stringify(data));
@@ -24,10 +27,13 @@ export const POST: APIRoute = async ({ request }) => {
     .select();
 
   if (error) {
-    return new Response(JSON.stringify({
-      error: error.message,
-    }), { status: 500 });
+    return new Response(
+      JSON.stringify({
+        error: error.message,
+      }),
+      { status: 500 },
+    );
   }
-  
+
   return new Response(JSON.stringify(data));
 };
