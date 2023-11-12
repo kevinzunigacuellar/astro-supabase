@@ -5,7 +5,7 @@ interface Props {
 
 const description = "Astro and Supabase demo app";
 const { title } = Astro.props;
-const ogImageURL = new URL("/hero.png", Astro.site).href;
+const ogImageURL = new URL("hero.png", Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
 ---
 
