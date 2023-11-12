@@ -3,6 +3,7 @@ import {
   For,
   ErrorBoundary,
   type ResourceFetcher,
+  type JSX,
 } from "solid-js";
 
 export interface GuestbookEntry {
@@ -35,16 +36,18 @@ export function Reviews({ reviews }: { reviews: GuestbookEntry[] }) {
     ssrLoadFrom: "initial",
   });
 
-  const onSubmitHandler = (e: SubmitEvent) => {
+  const onSubmitHandler: JSX.EventHandler<HTMLFormElement, SubmitEvent> = (
+    e,
+  ) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
     const name = formData.get("name")?.toString();
     const message = formData.get("message")?.toString();
 
     if (!name || !message) return;
     refetch({ name, message });
-    // clear form
-    (e.currentTarget as HTMLFormElement).reset();
+    formElement.reset();
   };
 
   return (
@@ -98,7 +101,9 @@ export function Reviews({ reviews }: { reviews: GuestbookEntry[] }) {
           <For each={data()}>
             {(review) => (
               <li class="p-4 border rounded-md bg-white dark:bg-zinc-800 dark:border-zinc-700">
-                <p class="text-sm font-medium text-zinc-500 dark:text-zinc-400">{review.name}</p>
+                <p class="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                  {review.name}
+                </p>
                 <p class="mt-1">{review.message}</p>
               </li>
             )}
