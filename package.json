@@ -7,20 +7,22 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --w 'src/**/*'",
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/solid-js": "^3.0.2",
-    "@astrojs/tailwind": "^5.0.2",
-    "@astrojs/vercel": "^5.1.0",
-    "@supabase/supabase-js": "^2.38.4",
-    "astro": "^3.4.2",
-    "solid-js": "^1.8.5",
-    "tailwindcss": "^3.3.5"
+    "@astrojs/tailwind": "^5.0.4",
+    "@astrojs/vercel": "^6.1.0",
+    "@supabase/supabase-js": "^2.39.1",
+    "astro": "^4.0.7",
+    "micromatch": "^4.0.5",
+    "solid-js": "^1.8.7",
+    "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.1"
+    "@types/micromatch": "^4.0.6",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.2"
   }
 }

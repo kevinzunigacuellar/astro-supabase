@@ -1,12 +1,13 @@
 import { defineMiddleware } from "astro:middleware";
 import { supabase } from "../lib/supabase";
+import micromatch from "micromatch";
 
-const protectedRoutes = ["/dashboard"];
-const redirectRoutes = ["/signin", "/register"];
+const protectedRoutes = ["/dashboard(|/)"];
+const redirectRoutes = ["/signin(|/)", "/register(|/)"];
 
 export const onRequest = defineMiddleware(
   async ({ locals, url, cookies, redirect }, next) => {
-    if (protectedRoutes.includes(url.pathname)) {
+    if (micromatch.isMatch(url.pathname, protectedRoutes)) {
       const accessToken = cookies.get("sb-access-token");
       const refreshToken = cookies.get("sb-refresh-token");
 
@@ -42,7 +43,7 @@ export const onRequest = defineMiddleware(
       });
     }
 
-    if (redirectRoutes.includes(url.pathname)) {
+    if (micromatch.isMatch(url.pathname, redirectRoutes)) {
       const accessToken = cookies.get("sb-access-token");
       const refreshToken = cookies.get("sb-refresh-token");
 
